@@ -1,0 +1,29 @@
+- Подключение к базе данных.
+- Запуск бота через Aiogram.
+- Регистрация хендлеров.
+
+```python
+from aiogram import Bot, Dispatcher, executor
+from app.core.config import load_config
+from app.bot.commands import register_handlers
+from app.core.db import init_db
+
+async def main():
+    config = load_config()
+    bot = Bot(token=config.BOT_TOKEN)
+    dp = Dispatcher(bot)
+    
+    # Инициализация базы данных
+    await init_db(config.DB_URL)
+
+    # Регистрация хендлеров
+    register_handlers(dp)
+
+    executor.start_polling(dp, skip_updates=True)
+
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())
+```
+
+---
