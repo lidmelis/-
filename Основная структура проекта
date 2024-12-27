@@ -1,0 +1,33 @@
+project_root/
+├── app/
+│   ├── __init__.py
+│   ├── bot/
+│   │   ├── __init__.py
+│   │   ├── handlers/       # Хендлеры для обработки команд
+│   │   │   ├── __init__.py
+│   │   │   ├── start.py
+│   │   │   ├── forms.py
+│   │   │   ├── stats.py
+│   │   └── middlewares.py  # Промежуточные обработки (например, логирование)
+│   │   └── commands.py     # Регистрация команд и обработчиков
+│   └── core/
+│       ├── __init__.py
+│       ├── config.py       # Конфигурация приложения (чтение из .env)
+│       ├── db.py           # Инициализация базы данных (SQLAlchemy)
+│       ├── models.py       # Описание моделей SQLAlchemy
+│       ├── migrations/     # Папка для Alembic
+│   └── services/           # Бизнес-логика приложения
+│       ├── __init__.py
+│       ├── form_service.py # Логика обработки заполненных форм
+│       ├── stats_service.py# Генерация статистики с pandas
+├── tests/
+│   ├── __init__.py
+│   ├── test_handlers.py    # Тесты хендлеров бота
+│   ├── test_services.py    # Тесты бизнес-логики
+├── docker/
+│   ├── Dockerfile          # Dockerfile для приложения
+│   ├── docker-compose.yml  # Docker Compose для запуска Postgres и приложения
+├── .env                    # Конфигурация окружения
+├── requirements.txt        # Зависимости Python
+├── alembic.ini             # Конфигурация Alembic
+└── main.py                 # Точка входа в приложение
